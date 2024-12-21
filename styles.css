@@ -1,0 +1,70 @@
+.general-container {
+	width: 410px;
+    height: 500px;
+	margin-left: auto;
+    margin-right: auto;
+    background-color: #9a72c9;
+    padding-left: 50px;
+    padding-right: 50px;
+    border-radius: 5px;
+}
+.click-here {
+    padding-top: 16px;
+}
+
+.input-form{
+    width: 400px;
+    height: 40px;
+    border: none;
+    border-radius: 5px;
+}
+ul 	{
+	padding-left: 0;
+
+}
+
+li {
+	list-style-type: none;
+	font-size: 20px;
+	cursor: pointer;
+}
+
+.repoList {
+	position: relative;
+	padding: 20px;
+	background-color: #70c9a7;
+	display: flex;
+	border: 1px solid black;
+    border-radius: 5px;
+    margin-bottom: 5px;
+}
+
+.repoList li {
+	width: 330px;
+	display: flex;
+	justify-content: center;
+}
+
+.repoList span {
+	position: absolute;
+	right: 20px;
+	width: 30px;
+}
+
+.img {
+	position: absolute;
+	right: 25px;
+	top: 40px;
+	width: 40px;
+	height: 40px;
+}
+
+.img:hover {
+    cursor: pointer;
+    opacity: 0.5;
+}
+
+button {
+	border: none;
+	background-color: #70c9a7;
+}
