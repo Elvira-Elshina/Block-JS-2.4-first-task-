@@ -65,10 +65,10 @@ function renderList(res) {
   }
 
   for (let i = 0; i < 5; i++) {
-    if (res[i]) {
+    if (res.items[i]) {
       fragment = document.createElement('li');
-      fragment.textContent = listTemplate(res[i]);
-      rpsRepos.push(res[i]);
+      fragment.textContent = listTemplate(res.items[i]);
+      rpsRepos.push(res.items[i]);
       repositoriesList.append(fragment);
     }
   }
@@ -98,21 +98,24 @@ input.addEventListener("input", (e) => {
 });
 
 
-const debouncedFn = debounce(fn, 500);
+const debouncedFn = debounce(fn, 1000);
 async function getUsers(name) {
-  let repos = fetch(`https://api.github.com/users/${name}/repos?per_page=5`).then(
-    (successResponse) => {
+  if (name) {
+    let repos = fetch(`https://api.github.com/search/repositories?q=${name}&per_page=5`).then(
 
-      if (successResponse.status != 200) {
+      (successResponse) => {
+  
+        if (successResponse.status != 200) {
+          return null;
+        } else {
+          return successResponse.json();
+        }
+      },
+      () => {
         return null;
-      } else {
-        return successResponse.json();
       }
-    },
-    (failResponse) => {
-      return null;
-    }
-  );
-
-  return repos;
+    );
+    
+    return repos;
+  }
 }
